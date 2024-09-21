@@ -16,8 +16,10 @@ void linkedlist(struct Node *ptr)
     }
 }
 struct Node *insertatfirst(struct Node *head, int data)
-/* function name se pehle uska return type hi aata hai (struct Node*)
-phir kya intake lega vo () ke andar vo likha hai */
+/* 
+function name se pehle uska return type hi aata hai (struct Node*)
+phir kya intake lega vo () ke andar vo likha hai
+*/
 {
     struct Node *ptr = (struct Node *)malloc(sizeof(struct Node));
     // "struct node* tells us the data type of "ptr"
@@ -39,7 +41,8 @@ void insertinbetween(struct Node *head, int data, int index)
     // ptr is basically a variable jiske naam par memory allocate hori hai
     // basically creating a new node
     struct Node* p = head;
-    /*"p" naam ka pointer is equal to "head"
+    /*
+    "p" naam ka pointer is equal to "head"
       also "p" pointer ka data type "struct node*" choose kra gya hai taaki vo
       "head" ke equal ho sake
       "struct node" structure ke andar do hi tareeke ke data type hai
@@ -48,7 +51,8 @@ void insertinbetween(struct Node *head, int data, int index)
       isliye "struct node" type ka variable hum bana hi nhi sakte hai
       hum yahan chahe toh khud ka ek code bana sakte hai jahan easy hoga point vagera karna
       but abhi idhar hum harry ka code samjh rhe hai
-      this is basically done to start "p" from the beginning and then after sometime move it forward*/
+      this is basically done to start "p" from the beginning and then after sometime move it forward
+      */
     int i = 0;
     while (i != index - 1)
     // jabtk "p" humare index se ek pehle nhi pahunch jaata tabtk
@@ -61,10 +65,12 @@ void insertinbetween(struct Node *head, int data, int index)
     ptr->data = data;
     ptr->next = p->next;
     // "ptr" ek node hai
-    /*so this statement basicaly means that jis "next" naam ke pointer ka use hora tha
+    /*
+    so this statement basicaly means that jis "next" naam ke pointer ka use hora tha
      to point towards the next member in linked list , using that same "next"
      "ptr" ka "next" (that is the pointer which point towards the next member of linked list) ab se
-     vo equal hai "p"(index-1) ke "next" ke */
+     vo equal hai "p"(index-1) ke "next" ke 
+     */
     p->next = ptr;
     // yeh kehra hai ki "p" ka "next" is equal to ptr
     // which basically means "p" ka "next" will point towards the new node "ptr"
@@ -76,7 +82,8 @@ void insertatend(struct Node *head, int data)
     ptr->data = data;
     //"ptr" ka "data" jo "data" function ke through laaya gya hai usek equal hai
     struct Node *p = head;
-    /*"p" naam ka pointer is equal to "head"
+    /*
+    "p" naam ka pointer is equal to "head"
       also "p" pointer ka data type "struct node*" choose kra gya hai taaki vo
       "head" ke equal ho sake
       "struct node" structure ke andar do hi tareeke ke data type hai
@@ -85,7 +92,8 @@ void insertatend(struct Node *head, int data)
       isliye "struct node" type ka varianle hum bana hi nhi sakte hai
       hum yahan chahe toh khud ka ek code bana sakte hai jahan easy hoga point vagera karna
       but abhi idhar hum harry ka code samjh rhe hai
-      this is basically done to start "p" from the beginning and then after sometime move it forward*/
+      this is basically done to start "p" from the beginning and then after sometime move it forward
+      */
     while (p->next != NULL)
     // jabtk "p" ka "next" "NULL" nahi ho jata tabtk
     {
@@ -98,23 +106,31 @@ void insertatend(struct Node *head, int data)
     // this states that new node "ptr" is the last node of linked list
 }
 struct Node *deletefirst(struct Node *head)
-/* function name se pehle uska return type hi aata hai (struct Node*)
-and kyuki humein iss function mein "head" ki zarurat hai isliye hum "head" bhi lenge */
+/* 
+function name se pehle uska return type hi aata hai (struct Node*)
+and kyuki humein iss function mein "head" ki zarurat hai isliye hum "head" bhi lenge 
+*/
 {
     struct Node *ptr = head;
     // ek naya "pointer" banaya and isse point kara diya "head" par
     head = head->next;
-    /* ab " head " ki value hogyi jisse bhi "head" naam ke "node" mein jo "pointer"
-      tha vo " pointer " jisse point karega uske jitni */
+    /*
+    ab " head " ki value hogyi jisse bhi "head" naam ke "node" mein jo "pointer"
+      tha vo " pointer " jisse point karega uske jitni 
+      */
     free(ptr);
-    /* kyuki ab "head" ki value toh change hogi isliye poorana "head" lhaali hogya
-    isliye hum usse "free" kara rhe hai*/
+    /*
+    kyuki ab "head" ki value toh change hogi isliye poorana "head" lhaali hogya
+    isliye hum usse "free" kara rhe hai
+    */
     return head;
     // when the function will be called later on (in this program) this statement would mean "head"=new"head
 }
 struct Node *deleteatindex(struct Node *head, int index)
-/* function name se pehle uska return type hi aata hai (struct Node*)
- and kyuki humein iss function mein "head" and "index" ki zarurat hai isliye hum "head" and "index" bhi lenge */
+/* 
+function name se pehle uska return type hi aata hai (struct Node*)
+ and kyuki humein iss function mein "head" and "index" ki zarurat hai isliye hum "head" and "index" bhi lenge 
+ */
 {
     struct Node *p = head;
     // a pointer "p" is pointing towards "head"
@@ -137,8 +153,10 @@ struct Node *deleteatindex(struct Node *head, int index)
     // when the function will be called later on (in this program) this statement would mean "head"=new"head
 }
 struct Node *deletewithvalue(struct Node *head, int value)
-/* function name se pehle uska return type hi aata hai (struct Node*)
- and kyuki humein iss function mein "head" and "value" ki zarurat hai isliye hum "head" and "value" bhi lenge */
+/*
+function name se pehle uska return type hi aata hai (struct Node*)
+ and kyuki humein iss function mein "head" and "value" ki zarurat hai isliye hum "head" and "value" bhi lenge 
+ */
 {
     struct Node *p = head;
     // a pointer "p" is pointing towards "head"
@@ -148,10 +166,12 @@ struct Node *deletewithvalue(struct Node *head, int value)
     // therefore "q" is pointing to the next "node" of "head" whatsoever
 
     while (q->data != value && q->next != NULL)
-    /*jabtak "q" ka "data" humari given "value" ke equal nhi hojata tabtk
+    /*
+    jabtak "q" ka "data" humari given "value" ke equal nhi hojata tabtk
     and also
     incase vo value hai hi nahi humari linked list mein then
-    jabtak "q" ka "next" "NULL" ke equal nhi hojata tabtk*/
+    jabtak "q" ka "next" "NULL" ke equal nhi hojata tabtk
+    */
     {
         p = p->next;
         q = q->next;
@@ -169,8 +189,10 @@ struct Node *deletewithvalue(struct Node *head, int value)
     // when the function will be called later on (in this program) this statement would mean "head"=new"head
 }
 struct Node *deleteatlast(struct Node *head)
-/* function name se pehle uska return type hi aata hai (struct Node*)
- and kyuki humein iss function mein "head" ki zarurat hai isliye hum "head" bhi lenge */
+/* 
+function name se pehle uska return type hi aata hai (struct Node*)
+ and kyuki humein iss function mein "head" ki zarurat hai isliye hum "head" bhi lenge 
+ */
 {
     struct Node *p = head;
     // a pointer "p" is pointing towards "head"
@@ -200,16 +222,20 @@ int main(int argc, char const *argv[])
 {
     struct Node *head;
     // pointer banaye jaare hai as to allocate memory dynamically aage jaakar
-    /* "head" ko as a "pointer" banaya jaara hai na ki as a simple "member of structure"
-     so that we can allocate memory dynamically using it*/
+    /*
+    "head" ko as a "pointer" banaya jaara hai na ki as a simple "member of structure"
+     so that we can allocate memory dynamically using it
+     */
     struct Node *second;
     // same
     struct Node *third;
     // same
     head = (struct Node *)malloc(sizeof(struct Node));
-    /* memory is allocated here
+    /*
+    memory is allocated here
      idhar memory bhi struct node jitni banayi gayi hai kyuki head usss struct ka hi member hai
-    and jo bhi data struct mein aana tha vo same head mein hai */
+    and jo bhi data struct mein aana tha vo same head mein hai 
+    */
     second = (struct Node *)malloc(sizeof(struct Node));
     // same
     third = (struct Node *)malloc(sizeof(struct Node));
