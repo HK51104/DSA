@@ -32,9 +32,15 @@ void BUBBLESORT(int A[], int n)
         {
             return;
         }
+<<<<<<< HEAD
     }
 }
 /*
+=======
+        
+    }
+     /*
+>>>>>>> 4e896a0e58771d3481d778c3485acea3037e97c3
 When issorted = 0:
 Condition: if (issorted) evaluates to false because issorted is 0 (which is treated as false in C).
 When issorted = 1:
@@ -43,7 +49,11 @@ issorted = 0: The return; statement is skipped, and the function continues execu
 issorted = 1: The return; statement is executed, causing the function to exit immediately.
 The use of issorted is to optimize the sorting algorithm by stopping early if the array is already sorted, thus avoiding unnecessary work.
 */
+<<<<<<< HEAD
 
+=======
+}
+>>>>>>> 4e896a0e58771d3481d778c3485acea3037e97c3
 int main(int argc, char const *argv[])
 {
     int A[] = {5, 6, 8, 7, 10, 9};
