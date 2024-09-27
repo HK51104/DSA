@@ -1,6 +1,7 @@
 #include<stdio.h>
 
-void printArray(int* A, int n){
+void printArray(int* A, int n)
+{
     for (int i = 0; i < n; i++)
     {
         printf("%d ", A[i]);
@@ -73,7 +74,8 @@ A[j+1](A[-1+1]=A[0])=7(key)
 
    //      07, 12, 23, 54, 65,| 09 --> i=5, key=09, j=4
    //      07, 09, 12, 23, 54, 65| --> After the 5th pass 
-int main(){
+int main()
+{
  
     
     int A[] = {12, 54, 65, 7, 23, 9};

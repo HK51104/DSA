@@ -32,15 +32,9 @@ void BUBBLESORT(int A[], int n)
         {
             return;
         }
-<<<<<<< HEAD
     }
 }
 /*
-=======
-        
-    }
-     /*
->>>>>>> 4e896a0e58771d3481d778c3485acea3037e97c3
 When issorted = 0:
 Condition: if (issorted) evaluates to false because issorted is 0 (which is treated as false in C).
 When issorted = 1:
