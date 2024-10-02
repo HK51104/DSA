@@ -50,8 +50,8 @@ void inOrder(struct node *root)
 
 int isBST(struct node *root)
 /*
-sabse pehle "5" aayega 
-then kyuki vo "NULL" nahi hai 
+sabse pehle "5" aayega
+then kyuki vo "NULL" nahi hai
 toh it will go to "if(!isBST)"
 "if(!isBST)" ki vjaah se "root ka left i.e 3" will go to "isBST"
 then kyuki "3" "NULL" nahi hai toh it will go to "(!isBST)"
@@ -71,12 +71,20 @@ now the compiler will again comeback to 3
 it will now check "if(prev!=NULL) waali condition " it will fail it since 1<3
 thus now "prev=3"
 and it will check "root->right i.e 4"
-since "4"!= NULL it will check "!isBST" waali condition 
+since "4"!= NULL it will check "!isBST" waali condition
 since "4" ke left mein kuchh hai nahi i.e "NULL"
-it will fail "if (root!=NULL)" waali condition 
+it will fail "if (root!=NULL)" waali condition
 and hence print zzzz
+then it will check "if(prev!=NUll)" waali condition for "4"
+and will fail it
+now "prev = 4" and will return zzzz
+now "3" willl go back to "if(prev)" waali condition and will print hehe
 after completely processing 3
 it will again comeback to 5 and will carry on the process
+it will now check "if(prev)" waali condition which will fail
+and thus "prev=5"
+and will return "isBST(root->right)"
+and so on....
 */
 {
     static struct node *prev = NULL;
@@ -88,7 +96,7 @@ it will again comeback to 5 and will carry on the process
         }
         if (prev != NULL && root->data <= prev->data)
         {
-        printf("HEHE\n");
+            printf("HEHE\n");
             // root node of the current subtree, is smaller than or equal to the prev node, then we would return 0. Since this violates the increasing orderliness.
         }
         prev = root;
@@ -96,7 +104,26 @@ it will again comeback to 5 and will carry on the process
     }
     else
     {
-        printf("zzzz\n");   
+        printf("zzzz\n");
+    }
+}
+struct node *search(struct node *root, int key)
+{
+    if (root == NULL)
+    {
+        return NULL;
+    }
+    if (key == root->data)
+    {
+        return root;
+    }
+    else if (key < root->data)
+    {
+        return search(root->left, key);
+    }
+    else
+    {
+        return search(root->right, key);
     }
 }
 
@@ -122,7 +149,6 @@ int main()
     //   / \
     //  1   4
 
-
     preOrder(p);
     printf("\n");
     postOrder(p);
@@ -131,12 +157,24 @@ int main()
     printf("\n");
     printf("%d\n", isBST(p));
     if (isBST(p))
+    // if it returns 1(true) then this "if" block is executed else...
     {
         printf("This is a bst");
     }
     else
+    // if it returns 0 or anything except 1 (false) then this will execute
     {
         printf("This is not a bst");
+    }
+
+    struct node *n = search(p, 10);
+    if (n != NULL)
+    {
+        printf("Found: %d", n->data);
+    }
+    else
+    {
+        printf("Element not found");
     }
     return 0;
 }
