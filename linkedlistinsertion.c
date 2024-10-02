@@ -223,6 +223,11 @@ int main(int argc, char const *argv[])
     struct Node *head;
     // pointer banaye jaare hai as to allocate memory dynamically aage jaakar
     /*
+    you have declared head as a pointer to a struct Node.
+     When you declare a pointer, you are only allocating enough memory to store the "address" of some data
+      However, the actual memory for the structure itself, where its members will be stored, is not yet allocated.
+    */
+    /*
     "head" ko as a "pointer" banaya jaara hai na ki as a simple "member of structure"
      so that we can allocate memory dynamically using it
      */
