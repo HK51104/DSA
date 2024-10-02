@@ -81,15 +81,12 @@ void insertatend(struct Node *head, int data)
     //"ptr" ka "data" jo "data" function ke through laaya gya hai usek equal hai
     struct Node *p = head;
     /*
-    "p" naam ka pointer is equal to "head"
-      also "p" pointer ka data type "struct node*" choose kra gya hai taaki vo
-      "head" ke equal ho sake
+    "p" naam ka pointer stores the address to "head"
+      also "p" pointer ka data type "struct node*" choose kra gya hai because
+      "head" ka dtaa type bhi "struct node" hai
       "struct node" structure ke andar do hi tareeke ke data type hai
       "int and pointer of the type struct node again " which means jo pointer hai vo
-      struct node ko hi store kar sakta hai apne andar(which basically means uske equal ho jana)
-      isliye "struct node" type ka varianle hum bana hi nhi sakte hai
-      hum yahan chahe toh khud ka ek code bana sakte hai jahan easy hoga point vagera karna
-      but abhi idhar hum harry ka code samjh rhe hai
+      struct node ko hi store kar sakta hai apne andar
       this is basically done to start "p" from the beginning and then after sometime move it forward
       */
     while (p->next != NULL)
@@ -110,15 +107,19 @@ and kyuki humein iss function mein "head" ki zarurat hai isliye hum "head" bhi l
 */
 {
     struct Node *ptr = head;
+    /*
+    By doing this, you preserve the address of the current first node.
+    You need this address to free the memory later because once you update head (in the next step), you'll lose access to this node.
+    */
     // ek naya "pointer" banaya and isse point kara diya "head" par
     head = head->next;
     /*
-    ab " head " ki value hogyi jisse bhi "head" naam ke "node" mein jo "pointer"
+    ab " head " ki value hogyi jisse bhi "head" naam ke "node" mein jo " next naam ka pointer"
       tha vo " pointer " jisse point karega uske jitni 
       */
     free(ptr);
     /*
-    kyuki ab "head" ki value toh change hogi isliye poorana "head" lhaali hogya
+    kyuki ab "head" ki value toh change hogi isliye poorana "head" khaali hogya
     isliye hum usse "free" kara rhe hai
     */
     return head;
@@ -145,6 +146,7 @@ function name se pehle uska return type hi aata hai (struct Node*)
     p->next = q->next;
     // jaise hi wahan tak pahunch gaya jahan delete karna hai tab
     // "p" ke "next" ko equal kardo "q" ke "next" ke
+//basically "q" destroy hone waala hai so jisko bhi "q" ka next point karne waala tha usko preserve karne ke liye kara yeh 
     free(q);
     // and "q" ko nasht kardo
     return head;
