@@ -159,12 +159,12 @@ int main()
     if (isBST(p))
     // if it returns 1(true) then this "if" block is executed else...
     {
-        printf("This is a bst");
+        printf("This is a bst\n");
     }
     else
     // if it returns 0 or anything except 1 (false) then this will execute
     {
-        printf("This is not a bst");
+        printf("This is not a bst\n");
     }
 
     struct node *n = search(p, 10);
