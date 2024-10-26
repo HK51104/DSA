@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "ADTS.C": "cpp"
-    }
+        "ADTS.C": "cpp",
+        "7.C": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
